@@ -1,0 +1,265 @@
+/*%FSM<COMPILE "E:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Mission Flow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-325.000000,25.000000,-275.000000,0.000000,"Start"};
+item1[] = {"Dedicated",8,218,-200.000000,-325.000000,-100.000000,-275.000000,0.000000,"Dedicated"};
+item2[] = {"Terminate",1,250,-200.000000,-250.000000,-100.000000,-200.000000,0.000000,"Terminate"};
+item3[] = {"Clients",4,218,-75.000000,-250.000000,25.000000,-200.000000,1.000000,"Clients"};
+item4[] = {"Init",2,250,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"Init"};
+item5[] = {"_",8,218,-75.000000,-100.000000,25.000000,-50.000000,0.000000,""};
+item6[] = {"",7,210,-29.000004,46.000000,-20.999996,54.000004,0.000000,""};
+item7[] = {"Has_Goggles",4,218,-150.000000,75.000000,-50.000000,125.000000,0.000000,"Has Goggles"};
+item8[] = {"Enemies__Reveale",2,250,-150.000000,150.000000,-50.000000,200.000000,0.000000,"Enemies " \n "Revealed"};
+item9[] = {"No_Goggles",4,218,0.000000,75.000000,100.000000,125.000000,0.000000,"No Goggles"};
+item10[] = {"Enemies__Hidden",2,250,0.000000,150.000000,100.000000,200.000000,0.000000,"Enemies " \n "Hidden"};
+item11[] = {"",7,210,196.000000,46.000000,204.000000,54.000000,0.000000,""};
+item12[] = {"End_Sequence",4,218,150.000000,75.000000,250.000000,125.000000,0.000000,"End" \n "Sequence"};
+item13[] = {"End",1,4346,150.000000,150.000000,250.000000,200.000000,0.000000,"End"};
+item14[] = {"",7,210,-104.000008,221.000000,-95.999992,229.000000,0.000000,""};
+item15[] = {"",7,210,46.000000,221.000000,54.000000,229.000000,0.000000,""};
+item16[] = {"",7,210,-229.000000,221.000000,-221.000000,229.000000,0.000000,""};
+item17[] = {"",7,210,-229.000000,-79.000000,-221.000000,-71.000000,0.000000,""};
+item18[] = {"Get_Variable",2,250,-75.000000,-25.000000,25.000000,25.000000,0.000000,"Get Variable"};
+link0[] = {0,1};
+link1[] = {0,3};
+link2[] = {1,2};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,18};
+link6[] = {6,7};
+link7[] = {6,9};
+link8[] = {6,11};
+link9[] = {7,8};
+link10[] = {8,14};
+link11[] = {9,10};
+link12[] = {10,15};
+link13[] = {11,12};
+link14[] = {12,13};
+link15[] = {14,16};
+link16[] = {15,14};
+link17[] = {16,17};
+link18[] = {17,5};
+link19[] = {18,6};
+globals[] = {0.000000,0,0,0,0,640,480,1,413,6316128,1,-449.401947,382.584808,449.425964,-386.662659,1217,1223,1};
+window[] = {2,-1,-1,-1,-1,1071,208,1787,208,3,1235};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Mission Flow";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Clients">*/
+                                class Clients
+                                {
+                                        itemno = 3;
+                                        priority = 1.000000;
+                                        to="Init";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"hasInterface"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dedicated">*/
+                                class Dedicated
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Terminate";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Terminate">*/
+                class Terminate
+                {
+                        name = "Terminate";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"player sidechat ""Dedicated"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"//Trigger Script for One off Player Goggles Check" \n
+                         "_hasGoggles = [] call fnc_player_gogglesCheck;" \n
+                         "" \n
+                         "//player sidechat format [""Has Goggles? = %1"", _hasGoggles];" \n
+                         "" \n
+                         "if (_hasGoggles) then {" \n
+                         "	player setVariable [""gogglesOn"", true, false];" \n
+                         "} else {" \n
+                         "	player setVariable [""gogglesOn"", false, false];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Get_Variable";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Enemies__Reveale">*/
+                class Enemies__Reveale
+                {
+                        name = "Enemies__Reveale";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"player sidechat ""Goggles On"";" \n
+                         "playSound ""Simulation_Restart"";" \n
+                         "{" \n
+                         "	if ((side _x) == independent) then" \n
+                         "	{" \n
+                         "		_x hideObject false;" \n
+                         "	};" \n
+                         "} forEach allUnits;" \n
+                         "" \n
+                         "player setVariable [""gogglesOn"", true, false];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Get_Variable";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Enemies__Hidden">*/
+                class Enemies__Hidden
+                {
+                        name = "Enemies__Hidden";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"player sidechat ""Goggles Off"";" \n
+                         "playSound ""Simulation_Fatal"";" \n
+                         "{" \n
+                         "	if ((side _x) == independent) then" \n
+                         "	{" \n
+                         "		_x hideObject true;" \n
+                         "	};" \n
+                         "} forEach allUnits;" \n
+                         "" \n
+                         "player setVariable [""gogglesOn"", false, false];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Get_Variable";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Get_Variable">*/
+                class Get_Variable
+                {
+                        name = "Get_Variable";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"_goggleState = player getVariable ""gogglesOn"";" \n
+                         "" \n
+                         "//player sidechat format [""State = %1"", _goggleState];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "No_Goggles">*/
+                                class No_Goggles
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Enemies__Hidden";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!((goggles player) == ""G_Goggles_VR"")" \n
+                                         "&&" \n
+                                         "_goggleState"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "End_Sequence">*/
+                                class End_Sequence
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not alive player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Has_Goggles">*/
+                                class Has_Goggles
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Enemies__Reveale";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(goggles player) == ""G_Goggles_VR""" \n
+                                         "&&" \n
+                                         "!(_goggleState)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Terminate",
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/
