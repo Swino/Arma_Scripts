@@ -6,31 +6,46 @@
 	Group will spawn and hunt player with fancy effects
 
 	Parameter(s):
-	_this select 0: Pos - Spawn Position - Marker or Coordinates
-	_this select 1: side - Units side
-	_this select 2: Group - Units to spawn
-	_this select 3: Group - Group name of the player group to stalk
-	_this select 4: Int - Type of spawn. 1 for Hunt Players, any other number for Patrol Current Pos
-	_this select 5: Int - Spawn Effect. 1 For Teleport effect, any other number no effect and silent
+	0: Pos - Spawn Position - Marker or Coordinates
+	1: side - Units side
+	2: Array, Config - Units to spawn
+	3: Group - Group name of the players group to stalk / follow
+	4: Int - Type of spawn. 1 for Hunt Players, 2 Patrol Current Pos, 3 Attack pos of param 6
+	5: Int - Spawn Effect. 1 For Teleport effect, any other number no effect and silent
+	6: Pos - Attack Position
+	7: String - Combat mode of the group.
 
 grpPlayers
-	e.g. [getmarkerPos "spawn1", East, ["O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F"], grpPlayers,1,1] call spawnGhosts;
+	e.g. [getmarkerPos "spawn1", East, ["O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F","O_Soldier_VR_F"], grpPlayers,1,1,[],""] call spawnGhosts;
 	Returns:
 	group - Group ID
 */
 
-private ["_spawnMrker","_side","_groupUnits","_groupStalk","_leaderGrp","_grp","_type","_effect","_dest","_stealthDaMode"];
-
 if (!isServer) exitWith {};
 
-_spawnMrker = _this select 0;
-_side = _this select 1;
-_groupUnits = _this select 2;
-_groupStalk = _this select 3;
-_type = _this select 4;
-_effect = _this select 5;
-_dest = _this select 6;
-_stealthDaMode = _this select 7;
+//Function Parameters
+private _spawnMrker = param [0, ""];
+private _side = param [1, East];
+private _groupUnits = param [2, objNull];
+private _groupStalk = param [3, objNull];
+private _type = param [4, 2];
+private _effect = param [5, 1];
+private _dest = param [6, []];
+private _comMode = param [7, "AWARE"];
+
+//Validation of Params
+if (typeName _spawnMrker != "ARRAY") then
+{
+	"spawnGhosts.sqf: Spawn Destination not Array containing Coordinates." call BIS_fnc_error;
+};
+if (typeName _side != "SIDE") then
+{
+	"spawnGhosts.sqf: Spawn SIDE not Valid SIDE" call BIS_fnc_error;
+};
+if (typeName _groupUnits != "CONFIG" && typeName _groupUnits != "ARRAY") then
+{
+	"spawnGhosts.sqf: Spawn Units not Valid. Needs to be Config or Array of units" call BIS_fnc_error;
+};
 
 //Spawn Effect?
 if (_effect == 1) Then {
@@ -49,12 +64,14 @@ _grp = [_spawnMrker, _side, _groupUnits] call BIS_fnc_spawnGroup;
 	_x linkItem "NVGogglesB_grn_F";
 } forEach units _grp;
 
+_grp allowFleeing 0;
+
 _leaderGrp = leader _grp;
 _leaderGrp addBackpack "G_FieldPack_LAT2";
 _leaderGrp addItemToBackpack "MRAWS_HEAT_F";
 _leaderGrp addWeapon "launch_MRAWS_olive_rail_F";
 
-switch (_stealthDaMode) do
+switch (_comMode) do
 {
 	case "STEATH":
 	{

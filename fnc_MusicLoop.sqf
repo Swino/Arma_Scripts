@@ -13,14 +13,13 @@
 	e.g. _nil = [objRadio,"song",50] execVM "fnc_SoundLoop.sqf";
 */
 
-private ["_object","_sound","_duration"];
+private ["_song","_duration"];
 
-_object = _this select 0;
-_sound = _this select 1;
-_duration = _this select 2;
+_song = _this select 0;
+_duration = _this select 1;
 
-while {alive _object} do {
-	[[_object,_sound], "say3d",true] call BIS_fnc_MP;
+while {finalSongPlay} do {
+	[_song] remoteExec ['playMusic',[0,-2] select isDedicated,false];
     sleep _duration;
 };
 
