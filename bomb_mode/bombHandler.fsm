@@ -1,0 +1,1267 @@
+/*%FSM<COMPILE "E:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Support Squad">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"START"};
+item1[] = {"IsServer",4,218,-70.000000,0.000000,20.000000,50.000000,0.000000,"IsServer"};
+item2[] = {"not_server",4,218,-200.000000,-100.000000,-100.000000,-50.000000,3.000000,"not server"};
+item3[] = {"END",1,250,-325.000000,-100.000000,-225.000000,-50.000000,0.000000,"END"};
+item4[] = {"Bomb_Init",3,250,-75.000000,75.000000,25.000000,125.000000,0.000000,"Bomb Init"};
+item5[] = {"Player_has_Bomb",4,218,25.000000,250.000000,125.000000,300.000000,0.000000,"Player has" \n "Bomb"};
+item6[] = {"Bomb_Dropped",4,218,25.000000,325.000000,125.000000,375.000000,0.000000,"Bomb" \n "Dropped"};
+item7[] = {"Update_Objective",2,250,150.000000,250.000000,250.000000,300.000000,0.000000,"Update" \n "Objectives"};
+item8[] = {"Grab_the_Bomb_",2,4346,150.000000,325.000000,250.000000,375.000000,0.000000,"Grab the Bomb!"};
+item9[] = {"Bombs_Reset",4,218,25.000000,625.000000,125.000000,675.000000,0.000000,"Bombs" \n "Reset"};
+item10[] = {"Reset_to_start_s",2,250,150.000000,625.000000,250.000000,675.000000,0.000000,"Reset to" \n "start spawn"};
+item11[] = {"",7,210,-28.999992,146.000000,-21.000008,154.000000,0.000000,""};
+item12[] = {"",7,210,-29.000004,171.000000,-20.999996,178.999985,0.000000,""};
+item13[] = {"Bomb_Neutral",4,218,25.000000,550.000000,125.000000,600.000000,0.000000,"Bomb Neutral"};
+item14[] = {"Reste_Bomb_Actio",2,250,150.000000,550.000000,250.000000,600.000000,0.000000,"Reste Bomb" \n "Actions"};
+item15[] = {"",7,210,-29.000002,271.000000,-20.999998,279.000000,0.000000,""};
+item16[] = {"",7,210,-29.000000,346.000000,-21.000000,353.999969,0.000000,""};
+item17[] = {"",7,210,271.000000,271.000000,279.000000,279.000000,0.000000,""};
+item18[] = {"",7,210,-129.000000,696.000000,-121.000000,704.000000,0.000000,""};
+item19[] = {"Bomb_Planted_Eas",4,218,-325.000000,250.000000,-225.000000,300.000000,0.000000,"Bomb Planted" \n "East"};
+item20[] = {"Bomb_Planted_Wes",4,218,-450.000000,250.000000,-350.000000,300.000000,0.000000,"Bomb Planted" \n "West"};
+item21[] = {"",7,210,-278.999969,171.000000,-271.000031,178.999985,0.000000,""};
+item22[] = {"",7,210,-404.000000,171.000000,-396.000000,179.000000,0.000000,""};
+item23[] = {"Bomb_Planted_Eas",2,250,-325.000000,325.000000,-225.000000,375.000000,0.000000,"Bomb Planted" \n "East"};
+item24[] = {"Bomb_Planted_Wes",2,250,-450.000000,325.000000,-350.000000,375.000000,0.000000,"Bomb Planted" \n "West"};
+item25[] = {"Timer_Start",2,250,-400.000000,475.000000,-300.000000,525.000000,0.000000,"Timer Start"};
+item26[] = {"_",8,218,-400.000000,400.000000,-300.000000,450.000000,0.000000,""};
+item27[] = {"Disarmed",4,218,-475.000000,550.000000,-375.000000,600.000000,0.000000,"Disarmed"};
+item28[] = {"Detonated",4,218,-325.000000,550.000000,-225.000000,600.000000,0.000000,"Detonated"};
+item29[] = {"Kablooey",2,250,-325.000000,625.000000,-225.000000,675.000000,0.000000,"Kablooey"};
+item30[] = {"Disarmed",2,250,-475.000000,625.000000,-375.000000,675.000000,0.000000,"Disarmed"};
+item31[] = {"",7,210,271.000000,346.000000,279.000000,354.000031,0.000000,""};
+item32[] = {"",7,210,-129.000000,571.000000,-120.999992,579.000000,0.000000,""};
+item33[] = {"",7,210,271.000000,345.999969,279.000000,354.000000,0.000000,""};
+item34[] = {"",7,210,271.000000,271.000000,279.000000,279.000000,0.000000,""};
+item35[] = {"",7,210,271.000000,171.000000,279.000000,179.000000,0.000000,""};
+item36[] = {"",7,210,271.000000,571.000000,279.000000,579.000000,0.000000,""};
+item37[] = {"",7,210,-279.000000,696.000000,-271.000000,704.000000,0.000000,""};
+item38[] = {"",7,210,-428.999969,696.000000,-421.000031,704.000000,0.000000,""};
+item39[] = {"",7,210,271.000000,646.000000,279.000000,654.000000,0.000000,""};
+item40[] = {"",7,210,-29.000000,646.000000,-21.000000,654.000000,0.000000,""};
+item41[] = {"",7,210,-29.000000,571.000000,-21.000000,579.000000,0.000000,""};
+item42[] = {"",7,210,-29.000000,421.000000,-21.000000,429.000000,0.000000,""};
+item43[] = {"Backpack_Removed",4,218,25.000000,400.000000,125.000000,450.000000,0.000000,"Backpack" \n "Removed"};
+link0[] = {0,1};
+link1[] = {0,2};
+link2[] = {1,4};
+link3[] = {2,3};
+link4[] = {4,11};
+link5[] = {5,7};
+link6[] = {6,8};
+link7[] = {7,34};
+link8[] = {8,33};
+link9[] = {9,10};
+link10[] = {10,39};
+link11[] = {11,12};
+link12[] = {12,15};
+link13[] = {12,21};
+link14[] = {13,14};
+link15[] = {14,36};
+link16[] = {15,5};
+link17[] = {15,16};
+link18[] = {16,6};
+link19[] = {16,42};
+link20[] = {18,32};
+link21[] = {19,23};
+link22[] = {20,24};
+link23[] = {21,19};
+link24[] = {21,22};
+link25[] = {22,20};
+link26[] = {23,26};
+link27[] = {24,26};
+link28[] = {25,27};
+link29[] = {25,28};
+link30[] = {26,25};
+link31[] = {27,30};
+link32[] = {28,29};
+link33[] = {29,37};
+link34[] = {30,38};
+link35[] = {32,41};
+link36[] = {33,34};
+link37[] = {34,35};
+link38[] = {35,12};
+link39[] = {36,33};
+link40[] = {37,18};
+link41[] = {38,37};
+link42[] = {39,36};
+link43[] = {40,9};
+link44[] = {41,13};
+link45[] = {41,40};
+link46[] = {42,41};
+link47[] = {42,43};
+link48[] = {43,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,264,6316128,1,-346.653687,437.581787,972.999329,180.338013,1210,863,1};
+window[] = {2,-1,-1,-1,-1,983,104,1498,104,3,1228};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Support Squad";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_bombTimer = [""bombTimer"",60] call BIS_fnc_getParamValue;" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombTimer"", _bombTimer,true];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_server">*/
+                                class not_server
+                                {
+                                        itemno = 2;
+                                        priority = 3.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "IsServer">*/
+                                class IsServer
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Bomb_Init";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"""SupportSquadFSM: Attempt to run on machine which is not the server!"" call BIS_fnc_error;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Bomb_Init">*/
+                class Bomb_Init
+                {
+                        name = "Bomb_Init";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_debug = missionNamespace getVariable [""debugMode"", false];" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull,true];" \n
+                         "missionNamespace setVariable [""carrierSide"",sideUnknown,true];" \n
+                         "missionNamespace setVariable [""armedSide"",sideUnknown,true];" \n
+                         "missionNamespace setVariable [""bombArmed"", false,true];" \n
+                         "daBomb setVariable [""pickedUp"", false,true];" \n
+                         "daBomb setVariable [""beingCarried"", false,true];" \n
+                         "daBomb setVariable [""bombReset"", false,true];" \n
+                         "daBomb setVariable [""bombNeutral"", false,true];" \n
+                         "daBomb setVariable [""piackupAble"", true,true];" \n
+                         "daBomb setVariable [""disarmable"", false,true];" \n
+                         "" \n
+                         """bombPickupWest"" call BIS_fnc_missionTasks;" \n
+                         """bombPickupEast"" call BIS_fnc_missionTasks;" \n
+                         """bombPlantWest"" call BIS_fnc_missionTasks;" \n
+                         """bombPlantEast"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log format [""Bomb Timer = %1"", _bombTimer];" \n
+                         "	diag_log format [""Carrier Unit = %1"", missionNamespace getVariable [""bombCarrierUnit"",objNull]];" \n
+                         "	diag_log format [""Are you the Bomb Carrier = %1"", player getVariable [""bombCarrier"",false]];" \n
+                         "	diag_log format [""daBomb picked up = %1"", daBomb getVariable [""pickedUp"",false]];" \n
+                         "	diag_log format [""daBomb being Carried = %1"", daBomb getVariable [""beingCarried"",false]];" \n
+                         "	diag_log format [""Carrier Side = %1"", missionNamespace getVariable [""carrierSide"",sideUnknown]];" \n
+                         "};" \n
+                         "" \n
+                         "[" \n
+                         "    daBomb," \n
+                         "    ""Grab Bomb""," \n
+                         "    """"," \n
+                         "    """"," \n
+                         "    ""_this distance _target < 2 && daBomb getVariable ['piackupAble', false]""," \n
+                         "    ""_caller distance _target < 2""," \n
+                         "    {}," \n
+                         "    {}," \n
+                         "    {" \n
+                         "        [_caller] call bombPickupHnd;" \n
+                         "    }," \n
+                         "    {}," \n
+                         "    []," \n
+                         "    0.5," \n
+                         "    0," \n
+                         "    false," \n
+                         "    false" \n
+                         "] remoteExec [""BIS_fnc_holdActionAdd"",0,daBomb];" \n
+                         "" \n
+                         "[" \n
+                         "    daBomb," \n
+                         "    ""Disarm Bomb""," \n
+                         "    """"," \n
+                         "    """"," \n
+                         "    """ \n
+                         "		_this distance _target < 2 " \n
+                         "		&& daBomb getVariable ['disarmable', false] " \n
+                         "		&& side _this != missionNamespace getVariable ['armedSide',sideUnknown];""," \n
+                         "    ""_caller distance _target < 2""," \n
+                         "    {}," \n
+                         "    {}," \n
+                         "    {" \n
+                         "        missionNamespace setVariable [""bombArmed"", false, true];" \n
+                         "    }," \n
+                         "    {}," \n
+                         "    []," \n
+                         "    0.5," \n
+                         "    0," \n
+                         "    false," \n
+                         "    false" \n
+                         "] remoteExec [""BIS_fnc_holdActionAdd"",0,daBomb];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bomb_Dropped">*/
+                                class Bomb_Dropped
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombDrop" \n
+                                         "||" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "not alive (missionNamespace getVariable [""bombCarrierUnit"", objNull])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Eas">*/
+                                class Bomb_Planted_Eas
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Eas";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedWest" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneWest" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == east" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Wes">*/
+                                class Bomb_Planted_Wes
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Wes";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedEast" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneEast" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == west" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Backpack_Removed">*/
+                                class Backpack_Removed
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"false" \n
+                                         "/**" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "backpack (missionNamespace getVariable [""bombCarrierUnit"", objNull]) != ""OPTRE_Fury_Backpack_Nuke""" \n
+                                         "**/"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Player_has_Bomb">*/
+                                class Player_has_Bomb
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Update_Objective";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""pickedUp"", false]" \n
+                                         "&&" \n
+                                         "!(daBomb getVariable [""beingCarried"", false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Update_Objective">*/
+                class Update_Objective
+                {
+                        name = "Update_Objective";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"daBomb setVariable [""beingCarried"", true, true];" \n
+                         "" \n
+                         "debugBombPicked = false;" \n
+                         "" \n
+                         "[""bomb_taken""] remoteExec ['PlaySound',[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Init"";" \n
+                         "	diag_log format [""Carrier Unit = %1"", missionNamespace getVariable [""bombCarrierUnit"",objNull]];" \n
+                         "	diag_log format [""Are you the Bomb Carrier = %1"", player getVariable [""bombCarrier"",false]];" \n
+                         "	diag_log format [""daBomb picked up = %1"", daBomb getVariable [""pickedUp"",false]];" \n
+                         "	diag_log format [""daBomb being Carried = %1"", daBomb getVariable [""beingCarried"",false]];" \n
+                         "	diag_log format [""Carrier Side = %1"", missionNamespace getVariable [""carrierSide"",sideUnknown]];" \n
+                         "};" \n
+                         "" \n
+                         "daBomb setVariable [""pickedUp"", false];" \n
+                         "daBomb hideobjectglobal true;" \n
+                         "" \n
+                         "_bombSide = missionNamespace getVariable [""carrierSide"",sideUnknown];" \n
+                         "" \n
+                         "switch (_bombSide) do" \n
+                         "{" \n
+                         "	case west:" \n
+                         "	{" \n
+                         "		[""bombPickupWest"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "		[""bombPickupEast"", ""CANCELED"",false] call BIS_fnc_missionTasks;" \n
+                         "	};" \n
+                         "" \n
+                         "	case east:" \n
+                         "	{" \n
+                         "		[""bombPickupEast"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "		[""bombPickupWest"", ""CANCELED"",false] call BIS_fnc_missionTasks;" \n
+                         "	};" \n
+                         "" \n
+                         "	default" \n
+                         "	{" \n
+                         "		""bombHandler.fsm: Side landed on default???"" call BIS_fnc_error;" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bomb_Dropped">*/
+                                class Bomb_Dropped
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombDrop" \n
+                                         "||" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "not alive (missionNamespace getVariable [""bombCarrierUnit"", objNull])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Eas">*/
+                                class Bomb_Planted_Eas
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Eas";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedWest" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneWest" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == east" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Wes">*/
+                                class Bomb_Planted_Wes
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Wes";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedEast" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneEast" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == west" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Backpack_Removed">*/
+                                class Backpack_Removed
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"false" \n
+                                         "/**" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "backpack (missionNamespace getVariable [""bombCarrierUnit"", objNull]) != ""OPTRE_Fury_Backpack_Nuke""" \n
+                                         "**/"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Player_has_Bomb">*/
+                                class Player_has_Bomb
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Update_Objective";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""pickedUp"", false]" \n
+                                         "&&" \n
+                                         "!(daBomb getVariable [""beingCarried"", false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Grab_the_Bomb_">*/
+                class Grab_the_Bomb_
+                {
+                        name = "Grab_the_Bomb_";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"private _deadUnit = missionNamespace getVariable [""bombCarrierUnit"", objNull];" \n
+                         "" \n
+                         "debugBombDrop = false;" \n
+                         "" \n
+                         "[""bomb_dropped""] remoteExec ['PlaySound',[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "//removeBackpackGlobal _deadUnit;" \n
+                         "" \n
+                         "daBomb setVariable [""beingCarried"", false, true];" \n
+                         "daBomb hideobjectglobal false;" \n
+                         "daBomb enablesimulationGLobal false;" \n
+                         "daBomb setposATL [getposATL _deadUnit select 0, (getposATL _deadUnit select 1), (getposATL _deadUnit select 2) + 0.3];" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Dropped"";" \n
+                         "	diag_log format [""Carrier Unit = %1"", missionNamespace getVariable [""bombCarrierUnit"",objNull]];" \n
+                         "	diag_log format [""Are you the Bomb Carrier = %1"", player getVariable [""bombCarrier"",false]];" \n
+                         "	diag_log format [""daBomb picked up = %1"", daBomb getVariable [""pickedUp"",false]];" \n
+                         "	diag_log format [""daBomb being Carried = %1"", daBomb getVariable [""beingCarried"",false]];" \n
+                         "	diag_log format [""Carrier Side = %1"", missionNamespace getVariable [""carrierSide"",sideUnknown]];" \n
+                         "};" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "" \n
+                         "[""bombPickupWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPickupEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPlantEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPlantWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	""bombPickupWest"" call BIS_fnc_taskSetCurrent;" \n
+                         "	""bombPickupEast"" call BIS_fnc_taskSetCurrent;	" \n
+                         "};" \n
+                         "" \n
+                         "// Bomb Reset Timer if no one picks it up, reset to middle" \n
+                         "[] spawn {" \n
+                         "	sleep 120;" \n
+                         "	if (!(daBomb getVariable [""beingCarried"", false])) then " \n
+                         "	{" \n
+                         "		// Bomb not picked up, reset after a period of time" \n
+                         "		daBomb setVariable [""bombReset"", true];" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bomb_Dropped">*/
+                                class Bomb_Dropped
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombDrop" \n
+                                         "||" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "not alive (missionNamespace getVariable [""bombCarrierUnit"", objNull])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Eas">*/
+                                class Bomb_Planted_Eas
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Eas";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedWest" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneWest" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == east" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Wes">*/
+                                class Bomb_Planted_Wes
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Wes";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedEast" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneEast" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == west" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Backpack_Removed">*/
+                                class Backpack_Removed
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"false" \n
+                                         "/**" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "backpack (missionNamespace getVariable [""bombCarrierUnit"", objNull]) != ""OPTRE_Fury_Backpack_Nuke""" \n
+                                         "**/"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Player_has_Bomb">*/
+                                class Player_has_Bomb
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Update_Objective";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""pickedUp"", false]" \n
+                                         "&&" \n
+                                         "!(daBomb getVariable [""beingCarried"", false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reset_to_start_s">*/
+                class Reset_to_start_s
+                {
+                        name = "Reset_to_start_s";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"debugBombReset = false;" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "missionNamespace setVariable [""carrierSide"", sideUnknown, true];" \n
+                         "" \n
+                         "daBomb setVariable [""pickedUp"", false, true];" \n
+                         "daBomb setVariable [""beingCarried"", false, true];" \n
+                         "daBomb setVariable [""bombNeutral"", false, true];" \n
+                         "daBomb setVariable [""bombReset"", false, true];" \n
+                         "daBomb setVariable [""piackupAble"", true, true];" \n
+                         "daBomb setVariable [""disarmable"", false, true];" \n
+                         "" \n
+                         "daBomb hideobjectglobal false;" \n
+                         "daBomb enablesimulationGLobal false;" \n
+                         "" \n
+                         "[""bomb_reset""] remoteExec ['PlaySound',[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Reset"";" \n
+                         "	diag_log format [""Carrier Unit = %1"", missionNamespace getVariable [""bombCarrierUnit"",objNull]];" \n
+                         "	diag_log format [""Are you the Bomb Carrier = %1"", player getVariable [""bombCarrier"",false]];" \n
+                         "	diag_log format [""daBomb picked up = %1"", daBomb getVariable [""pickedUp"",false]];" \n
+                         "	diag_log format [""daBomb being Carried = %1"", daBomb getVariable [""beingCarried"",false]];" \n
+                         "	diag_log format [""Carrier Side = %1"", missionNamespace getVariable [""carrierSide"",sideUnknown]];" \n
+                         "};" \n
+                         "" \n
+                         "daBomb setposATL [getposATL midSpawn select 0, getposATL midSpawn select 1, (getposATL midSpawn select 2) + 0.2];" \n
+                         "daBomb hideobjectglobal false;" \n
+                         "" \n
+                         "[[""""],""functions\fnc_jukebox.sqf""] remoteExec [""BIS_fnc_execVM"",[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "[""bombPickupWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPickupEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPlantEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPlantWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	""bombPickupWest"" call BIS_fnc_taskSetCurrent;" \n
+                         "	""bombPickupEast"" call BIS_fnc_taskSetCurrent;	" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bomb_Dropped">*/
+                                class Bomb_Dropped
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombDrop" \n
+                                         "||" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "not alive (missionNamespace getVariable [""bombCarrierUnit"", objNull])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Eas">*/
+                                class Bomb_Planted_Eas
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Eas";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedWest" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneWest" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == east" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Wes">*/
+                                class Bomb_Planted_Wes
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Wes";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedEast" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneEast" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == west" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Backpack_Removed">*/
+                                class Backpack_Removed
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"false" \n
+                                         "/**" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "backpack (missionNamespace getVariable [""bombCarrierUnit"", objNull]) != ""OPTRE_Fury_Backpack_Nuke""" \n
+                                         "**/"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Player_has_Bomb">*/
+                                class Player_has_Bomb
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Update_Objective";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""pickedUp"", false]" \n
+                                         "&&" \n
+                                         "!(daBomb getVariable [""beingCarried"", false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reste_Bomb_Actio">*/
+                class Reste_Bomb_Actio
+                {
+                        name = "Reste_Bomb_Actio";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "missionNamespace setVariable [""carrierSide"", sideUnknown, true];" \n
+                         "daBomb setVariable [""pickedUp"", false, true];" \n
+                         "daBomb setVariable [""beingCarried"", false, true];" \n
+                         "daBomb setVariable [""bombNeutral"", false, true];" \n
+                         "daBomb setVariable [""bombReset"", false, true];" \n
+                         "daBomb setVariable [""piackupAble"", true, true];" \n
+                         "daBomb setVariable [""disarmable"", false, true];" \n
+                         "" \n
+                         "daBomb hideobjectglobal false;" \n
+                         "daBomb enablesimulationGLobal false;" \n
+                         "" \n
+                         "[""bombPickupWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPickupEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPlantEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "[""bombPlantWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Reset"";" \n
+                         "	diag_log format [""Carrier Unit = %1"", missionNamespace getVariable [""bombCarrierUnit"",objNull]];" \n
+                         "	diag_log format [""Are you the Bomb Carrier = %1"", player getVariable [""bombCarrier"",false]];" \n
+                         "	diag_log format [""daBomb picked up = %1"", daBomb getVariable [""pickedUp"",false]];" \n
+                         "	diag_log format [""daBomb being Carried = %1"", daBomb getVariable [""beingCarried"",false]];" \n
+                         "	diag_log format [""Carrier Side = %1"", missionNamespace getVariable [""carrierSide"",sideUnknown]];" \n
+                         "};" \n
+                         "" \n
+                         "[[""""],""functions\fnc_jukebox.sqf""] remoteExec [""BIS_fnc_execVM"",[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	""bombPickupWest"" call BIS_fnc_taskSetCurrent;" \n
+                         "	""bombPickupEast"" call BIS_fnc_taskSetCurrent;	" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bomb_Dropped">*/
+                                class Bomb_Dropped
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombDrop" \n
+                                         "||" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "not alive (missionNamespace getVariable [""bombCarrierUnit"", objNull])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Eas">*/
+                                class Bomb_Planted_Eas
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Eas";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedWest" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneWest" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == east" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Planted_Wes">*/
+                                class Bomb_Planted_Wes
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Bomb_Planted_Wes";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombArmedEast" \n
+                                         "||" \n
+                                         "(" \n
+                                         "	missionNamespace getVariable [""bombCarrierUnit"", objNull] inArea bombZoneEast" \n
+                                         "	&&" \n
+                                         "	missionNamespace getVariable [""carrierSide"",sideUnknown] == west" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Backpack_Removed">*/
+                                class Backpack_Removed
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Grab_the_Bomb_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"false" \n
+                                         "/**" \n
+                                         "daBomb getVariable [""beingCarried"", false]" \n
+                                         "&&" \n
+                                         "backpack (missionNamespace getVariable [""bombCarrierUnit"", objNull]) != ""OPTRE_Fury_Backpack_Nuke""" \n
+                                         "**/"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Player_has_Bomb">*/
+                                class Player_has_Bomb
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Update_Objective";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""pickedUp"", false]" \n
+                                         "&&" \n
+                                         "!(daBomb getVariable [""beingCarried"", false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Bomb_Planted_Eas">*/
+                class Bomb_Planted_Eas
+                {
+                        name = "Bomb_Planted_Eas";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"[""bomb_armed""] remoteExec ['PlaySound',[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "//Remove Backpack Player" \n
+                         "_planter = missionNamespace getVariable [""bombCarrierUnit"", objNull];" \n
+                         "//removeBackpackGlobal _planter;" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "missionNamespace setVariable [""carrierSide"",sideUnknown, true];" \n
+                         "missionNamespace setVariable [""armedSide"",East, true];" \n
+                         "missionNamespace setVariable [""bombArmed"", true, true];" \n
+                         "" \n
+                         "daBomb setVariable [""beingCarried"", false, true];" \n
+                         "daBomb setposATL getposATL westPos1;" \n
+                         "daBomb hideobjectglobal false;" \n
+                         "daBomb enablesimulationGLobal false;" \n
+                         "" \n
+                         "[""bombPlantEast"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "if (""bombDisarmWest"" call BIS_fnc_taskExists) then" \n
+                         "{" \n
+                         "	[""bombDisarmWest"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "} else {" \n
+                         "	""bombDisarmWest"" call BIS_fnc_missionTasks;" \n
+                         "};" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Planted West"";" \n
+                         "	diag_log format [""Bomb Armed = %1"", missionNamespace getVariable [""bombArmed"",false]];" \n
+                         "	diag_log format [""Arming Side = %1"", missionNamespace getVariable [""armedSide"",sideUnknown]];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="Timer_Start";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Bomb_Planted_Wes">*/
+                class Bomb_Planted_Wes
+                {
+                        name = "Bomb_Planted_Wes";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"[""bomb_armed""] remoteExec ['PlaySound',[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "//Remove Backpack Player" \n
+                         "_planter = missionNamespace getVariable [""bombCarrierUnit"", objNull];" \n
+                         "//removeBackpackGlobal _planter;" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "missionNamespace setVariable [""carrierSide"",sideUnknown, true];" \n
+                         "missionNamespace setVariable [""armedSide"",West, true];" \n
+                         "missionNamespace setVariable [""bombArmed"", true, true];" \n
+                         "" \n
+                         "daBomb setVariable [""beingCarried"", false, true];" \n
+                         "daBomb setposATL getposATL eastPos1;" \n
+                         "daBomb hideobjectglobal false;" \n
+                         "daBomb enablesimulationGLobal false;" \n
+                         "" \n
+                         "[""bombPlantWest"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "if (""bombDisarmEast"" call BIS_fnc_taskExists) then" \n
+                         "{" \n
+                         "	[""bombDisarmEast"", ""CREATED""] call BIS_fnc_missionTasks;" \n
+                         "} else {" \n
+                         "	""bombDisarmEast"" call BIS_fnc_missionTasks;" \n
+                         "};" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Planted East"";" \n
+                         "	diag_log format [""Bomb Armed = %1"", missionNamespace getVariable [""bombArmed"",false]];" \n
+                         "	diag_log format [""Arming Side = %1"", missionNamespace getVariable [""armedSide"",sideUnknown]];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="Timer_Start";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Timer_Start">*/
+                class Timer_Start
+                {
+                        name = "Timer_Start";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/"// Timeout for bomb" \n
+                         "private _bombTime = missionNamespace getVariable [""bombTimer"", 60];" \n
+                         "private _timer = time + _bombTime;" \n
+                         "" \n
+                         "daBomb setVariable [""piackupAble"", false, true];" \n
+                         "daBomb setVariable [""disarmable"", true, true];" \n
+                         "" \n
+                         "[[""combat""],""functions\fnc_jukebox.sqf""] remoteExec [""BIS_fnc_execVM"",[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "//Spawn Countdown" \n
+                         "[] spawn {" \n
+                         "	_i = missionNamespace getVariable [""bombTimer"", 60];" \n
+                         "	while {missionNamespace getVariable [""bombArmed"", false]} do" \n
+                         "	{" \n
+                         "		bombTeamRed sidechat format [""%1"", _i];" \n
+                         "		bombTeamBlue sidechat format [""%1"", _i];" \n
+                         "		sleep 1;" \n
+                         "		_i = _i -1;" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Detonated">*/
+                                class Detonated
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="Kablooey";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disarmed">*/
+                                class Disarmed
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="Disarmed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(missionNamespace getVariable [""bombArmed"", false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Kablooey">*/
+                class Kablooey
+                {
+                        name = "Kablooey";
+                        itemno = 29;
+                        init = /*%FSM<STATEINIT""">*/"daBomb hideobjectglobal true;" \n
+                         "" \n
+                         "_scoreWOld = missionNamespace getVariable [""westScore"", 0];" \n
+                         "_scoreEOld = missionNamespace getVariable [""eastScore"", 0];" \n
+                         "" \n
+                         "switch (_bombSide) do" \n
+                         "{" \n
+                         "	case west:" \n
+                         "	{" \n
+                         "		[""bombDisarmEast"", ""FAILED"",false] call BIS_fnc_missionTasks;" \n
+                         "		missionNamespace setVariable [""westScore"", _scoreWOld + 1, true];" \n
+                         "	};" \n
+                         "" \n
+                         "	case east:" \n
+                         "	{" \n
+                         "		[""bombDisarmWest"", ""FAILED"",false] call BIS_fnc_missionTasks;" \n
+                         "		missionNamespace setVariable [""eastScore"", _scoreEOld + 1, true];" \n
+                         "	};" \n
+                         "" \n
+                         "	default" \n
+                         "	{" \n
+                         "		""bombHandler.fsm: Disarm Side landed on default???"" call BIS_fnc_error;" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "//Update Scoreboard" \n
+                         "[[],""scripts\hudUpdate.sqf""] remoteExec [""BIS_fnc_execVM"",[0,-2] select isDedicated,true];" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Bomb Boomski"";" \n
+                         "	diag_log format [""West Score = %1"", missionNamespace getVariable [""westScore"",0]];" \n
+                         "	diag_log format [""East Score = %1"", missionNamespace getVariable [""eastScore"",0]];" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "missionNamespace setVariable [""carrierSide"",sideUnknown, true];" \n
+                         "missionNamespace setVariable [""armedSide"",sideUnknown, true];" \n
+                         "missionNamespace setVariable [""bombArmed"", false, true];" \n
+                         "" \n
+                         "_bomb = ""Bo_GBU12_LGB"" createVehicle getposATL daBomb;" \n
+                         "[""bomb_detonated""] remoteExec ['PlaySound',[0,-2] select isDedicated,false];" \n
+                         "" \n
+                         "_bombSide = missionNamespace getVariable [""armedSide"",sideUnknown];" \n
+                         "" \n
+                         "//Spawn Countdown" \n
+                         "[] spawn {" \n
+                         "	sleep 10;" \n
+                         "	daBomb setVariable [""bombReset"", true];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Disarmed">*/
+                class Disarmed
+                {
+                        name = "Disarmed";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"if (_debug) then {player sidechat ""Bomb Disarmed"";};" \n
+                         "" \n
+                         "switch (_bombSide) do" \n
+                         "{" \n
+                         "	case west:" \n
+                         "	{" \n
+                         "		[""bombDisarmEast"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "	};" \n
+                         "" \n
+                         "	case east:" \n
+                         "	{" \n
+                         "		[""bombDisarmWest"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "	};" \n
+                         "" \n
+                         "	default" \n
+                         "	{" \n
+                         "		""bombHandler.fsm: Disarm Side landed on default???"" call BIS_fnc_error;" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "missionNamespace setVariable [""bombCarrierUnit"", objNull, true];" \n
+                         "missionNamespace setVariable [""carrierSide"",sideUnknown, true];" \n
+                         "missionNamespace setVariable [""armedSide"",sideUnknown, true];" \n
+                         "missionNamespace setVariable [""bombArmed"", false, true];" \n
+                         "" \n
+                         "daBomb setVariable [""bombNeutral"", true, true];" \n
+                         "" \n
+                         "_bombSide = missionNamespace getVariable [""armedSide"",sideUnknown];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bombs_Reset">*/
+                                class Bombs_Reset
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Reset_to_start_s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"debugBombReset" \n
+                                         "||" \n
+                                         "daBomb getVariable [""bombReset"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_Neutral">*/
+                                class Bomb_Neutral
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Reste_Bomb_Actio";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"daBomb getVariable [""bombNeutral"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/

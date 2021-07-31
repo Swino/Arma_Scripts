@@ -1,0 +1,264 @@
+/*%FSM<COMPILE "E:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Support Squad">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"START"};
+item1[] = {"IsServer",4,218,-70.000000,0.000000,20.000000,50.000000,0.000000,"IsServer"};
+item2[] = {"not_server",4,218,-200.000000,-100.000000,-100.000000,-50.000000,3.000000,"not server"};
+item3[] = {"END",1,250,-325.000000,-100.000000,-225.000000,-50.000000,0.000000,"END"};
+item4[] = {"Weapon_Init",3,4346,-75.000000,75.000000,25.000000,125.000000,0.000000,"Weapon Init"};
+item5[] = {"",7,210,-29.000008,145.999985,-20.999992,154.000000,0.000000,""};
+item6[] = {"",7,210,-28.999996,171.000000,-21.000004,179.000000,0.000000,""};
+item7[] = {"End_Function",4,218,-75.000000,200.000000,25.000000,250.000000,0.000000,"End Function"};
+item8[] = {"Exit",1,250,-75.000000,275.000000,25.000000,325.000000,0.000000,"Exit"};
+item9[] = {"",7,210,96.000000,171.000000,104.000000,178.999985,0.000000,""};
+item10[] = {"Picked_Up",4,218,50.000000,200.000000,150.000000,250.000000,0.000000,"Picked" \n "Up"};
+item11[] = {"Respawn_Weapon",2,250,50.000000,425.000000,150.000000,475.000000,0.000000,"Respawn" \n "Weapon"};
+item12[] = {"",7,210,96.000000,496.000000,104.000000,504.000000,0.000000,""};
+item13[] = {"Add_Weapon",2,250,50.000000,275.000000,150.000000,325.000000,0.000000,"Add Weapon"};
+item14[] = {"",7,210,171.000000,496.000000,179.000000,504.000000,0.000000,""};
+item15[] = {"Respawn",4,218,50.000000,350.000000,150.000000,400.000000,0.000000,"Respawn"};
+item16[] = {"",7,210,171.000000,146.000000,179.000000,154.000015,0.000000,""};
+link0[] = {0,1};
+link1[] = {0,2};
+link2[] = {1,4};
+link3[] = {2,3};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {6,9};
+link8[] = {7,8};
+link9[] = {9,10};
+link10[] = {10,13};
+link11[] = {11,12};
+link12[] = {12,14};
+link13[] = {13,15};
+link14[] = {14,16};
+link15[] = {15,11};
+link16[] = {16,5};
+globals[] = {0.000000,0,0,0,0,640,480,1,280,6316128,1,-445.869873,383.075928,605.904785,-231.947128,1210,1223,1};
+window[] = {2,-1,-1,-1,-1,1165,286,1680,286,3,1228};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Support Squad";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//Weapon FSM" \n
+                         "//gunFSM = [this, ""DMR"", false, 120] execFSM ""functions\weaponHandler.fsm"";" \n
+                         "_weaponObj = param [0, objNull];" \n
+                         "_gunType = param [1, """"];" \n
+                         "_secondary = param [2, false];" \n
+                         "_respawnTimer = param [3, 120];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_server">*/
+                                class not_server
+                                {
+                                        itemno = 2;
+                                        priority = 3.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "IsServer">*/
+                                class IsServer
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Weapon_Init";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"""SupportSquadFSM: Attempt to run on machine which is not the server!"" call BIS_fnc_error;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Weapon_Init">*/
+                class Weapon_Init
+                {
+                        name = "Weapon_Init";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_debug = missionNamespace getVariable [""debugMode"", false];" \n
+                         "" \n
+                         "_weaponObj hideObjectGlobal false;" \n
+                         "_weaponObj enableSimulationGlobal false;" \n
+                         "" \n
+                         "_weaponObj setVariable [""pickedUp"", false, true];" \n
+                         "_weaponObj setVariable [""weapType"", _gunType, true];" \n
+                         "_weaponObj setVariable [""weapCategory"", _secondary, true];" \n
+                         "_weaponObj setVariable [""deleteMe"", false];" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Weapon Init"";" \n
+                         "	diag_log format [""Weapon = %1"", _weaponObj];" \n
+                         "	diag_log format [""_gunType = %1"", _gunType];" \n
+                         "	diag_log format [""_secondary = %1"", _secondary];" \n
+                         "	diag_log format [""_respawnTimer = %1"", _respawnTimer];" \n
+                         "	diag_log format [""Weapon Grabbed = %1"", _weaponObj getVariable [""pickedUp"",false]];" \n
+                         "	diag_log format [""Weapon Delete Status = %1"", _weaponObj getVariable [""deleteMe"",false]];" \n
+                         "};" \n
+                         "" \n
+                         "[" \n
+                         "    _weaponObj," \n
+                         "    ""Grab Weapon""," \n
+                         "    """"," \n
+                         "    """"," \n
+                         "    ""_this distance _target < 3""," \n
+                         "    ""_caller distance _target < 3""," \n
+                         "    {}," \n
+                         "    {}," \n
+                         "    {" \n
+                         "      _target setVariable [""pickedUp"", true, true];" \n
+                         "		[_caller, _target getVariable [""weapType"",""""], _target getVariable [""weapCategory"",""""]] call weaponPickupHnd;" \n
+                         "    }," \n
+                         "    {}," \n
+                         "    []," \n
+                         "    0.5," \n
+                         "    9," \n
+                         "    false," \n
+                         "    false" \n
+                         "] remoteExec [""BIS_fnc_holdActionAdd"",0,_weaponObj];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Picked_Up">*/
+                                class Picked_Up
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Add_Weapon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_weaponObj getVariable [""pickedUp"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "End_Function">*/
+                                class End_Function
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Exit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_weaponObj getVariable [""deleteMe"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Exit">*/
+                class Exit
+                {
+                        name = "Exit";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle _weapon;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Respawn_Weapon">*/
+                class Respawn_Weapon
+                {
+                        name = "Respawn_Weapon";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"_weaponObj hideobjectGlobal false;" \n
+                         "" \n
+                         "_weaponObj setVariable [""pickedUp"", false,true];" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Weapon Respawned"";" \n
+                         "	diag_log format [""Weapon Grabbed = %1"", _weaponObj getVariable [""pickedUp"",false]];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Picked_Up">*/
+                                class Picked_Up
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Add_Weapon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_weaponObj getVariable [""pickedUp"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "End_Function">*/
+                                class End_Function
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Exit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_weaponObj getVariable [""deleteMe"", false]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Add_Weapon">*/
+                class Add_Weapon
+                {
+                        name = "Add_Weapon";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"// Timeout for bomb" \n
+                         "private _respawnTimer = time + _respawnTimer;" \n
+                         "" \n
+                         "_weaponObj hideObjectGlobal true;" \n
+                         "" \n
+                         "if (_debug) then {" \n
+                         "	diag_log ""Weapon Picked up"";" \n
+                         "	diag_log format [""Weapon Grabbed = %1"", _weaponObj getVariable [""pickedUp"",false]];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Respawn">*/
+                                class Respawn
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Respawn_Weapon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _respawnTimer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "END",
+                "Exit",
+        };
+};
+/*%FSM</COMPILE>*/
